@@ -7,17 +7,28 @@
 //
 
 #import "AppDelegate.h"
+#import "TGTabBarViewController.h"
+#import "UMSocial.h"
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
+- (void)initUM {
+    //初始化 um  必须要注册一个appkey
+    [UMSocialData setAppKey:@"507fcab25270157b37000010"];
+    //设置微信AppId、appSecret，分享url
+    
+    //微信 还要多注册一次 传入一个 scheme--》方便微信分享之后 调用我们自己的app
+    
+    
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    self.window.rootViewController=[[TGTabBarViewController alloc]init];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
